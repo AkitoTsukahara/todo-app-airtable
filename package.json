@@ -12,16 +12,18 @@
     "test:unit": "vitest",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write .",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",
     "@playwright/test": "^1.28.1",
     "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-controls": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-interactions": "^6.5.15",
     "@storybook/addon-links": "^6.5.15",
+    "@storybook/addon-svelte-csf": "^2.0.10",
     "@storybook/builder-vite": "^0.2.6",
     "@storybook/svelte": "^6.5.15",
     "@storybook/testing-library": "^0.0.13",
@@ -36,6 +38,8 @@
     "eslint-plugin-svelte3": "^4.0.0",
     "prettier": "^2.8.0",
     "prettier-plugin-svelte": "^2.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "svelte": "^3.55.0",
     "svelte-check": "^2.9.2",
     "svelte-loader": "^3.1.4",
@@ -46,7 +50,8 @@
   },
   "type": "module",
   "dependencies": {
+    "path": "^0.12.7",
     "sass": "^1.57.1",
-    "storybook": "^6.5.15"
+    "svelte-preprocess": "^5.0.0"
   }
 }
