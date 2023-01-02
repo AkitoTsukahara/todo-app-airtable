@@ -1,51 +1,65 @@
-import { defineConfig, type UserConfig } from 'vite'
+/// <reference types="histoire" />
+import { defineConfig} from 'vite'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { sveltekit } from '@sveltejs/kit/vite'
+import { HstSvelte } from '@histoire/plugin-svelte'
 
-export default defineConfig(() => {
-  return {
-    server: {
-      host: '0.0.0.0',
-      port: 1025,
-      fs: {
-        allow: ['.']
-      },
-      // cors: true,
-      // proxy: 'https://api.airtable.com',
+export default defineConfig({
+  server: {
+    host: '0.0.0.0',
+    port: 1025,
+    fs: {
+      allow: ['.']
     },
+    // cors: true,
+    // proxy: 'https://api.airtable.com',
+  },
+  plugins: [
+    sveltekit(),
+    // {
+    //   name: 'setup-vitest-plugin',
+    //   config: () =>
+    //     ({
+    //       test: {
+    //         setupFiles: ['./vitestSetup.ts']
+    //       }
+    //     } as UserConfig)
+    // },
+  ],
+  histoire: {
     plugins: [
-      sveltekit(),
-      {
-        name: 'setup-vitest-plugin',
-        config: () =>
-          ({
-            test: {
-              setupFiles: ['./vitestSetup.ts']
-            }
-          } as UserConfig)
-      },
+      HstSvelte(),
     ],
-    resolve: {
-      alias: [
+    setupFile: './src/histoire.setup.ts',
+    tree: {
+      groups: [
         {
-          find: '$lib',
-          replacement: `${__dirname}/src/lib/`
-        }
+          id: 'top',
+          title: '',
+        },
       ],
     },
-    css: {
-      preprocessorOptions: {
-        scss: {
-          // additionalData: '@use "src/variables.scss" as *;'
-        }
+  },
+  resolve: {
+    alias: [
+      {
+        find: '$lib',
+        replacement: `${__dirname}/src/lib/`
       }
-    },
-    ssr: {},
-    test: {
-      globals: true,
-      environment: 'jsdom',
-      include: ['**/*.vitest.ts']
+    ],
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // additionalData: '@use "src/variables.scss" as *;'
+      }
     }
+  },
+  ssr: {},
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    include: ['**/*.vitest.ts']
   }
 })
