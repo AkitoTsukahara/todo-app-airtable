@@ -36,12 +36,8 @@ update_snapshot:  ## playwright test with snapshot update
 rm_test_cache:  ## remove playwright test cache
 	@rm -rf playwright/.cache
 
-
 vitest:  ## vitest test
 	npm run vitest
 
-storybook:  ## storybook
-	npm run storybook
-
-api_build:  ## aspida build
-	npm run api:build
+story:  ## historie
+	npm run story:dev
