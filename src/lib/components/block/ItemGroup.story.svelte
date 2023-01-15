@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ListGroupItem from '$lib/components/block/ListGroupItem.svelte'
+  import ItemGroup from '$lib/components/block/ItemGroup.svelte'
 
   export let Hst
   let isChecked = false
@@ -7,7 +7,7 @@
 </script>
 
 <Hst.Story>
-  <ListGroupItem
+  <ItemGroup
       {isChecked}
       {item}
   />
