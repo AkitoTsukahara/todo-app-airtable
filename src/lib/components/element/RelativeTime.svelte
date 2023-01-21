@@ -14,5 +14,5 @@
 </div>
 <hr/>
 <div>
-  <relative-time datetime="2023-01-14T20:00:00" format='relative' />
+  <relative-time datetime="2023-01-17T17:30:00+09:00" format='relative'>2023-01-14</relative-time>
 </div>
