@@ -18,9 +18,6 @@
 </div>
 
 <style lang="scss">
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
   input[type=checkbox] {
     border-radius: 0.25em;
     width: 16px;

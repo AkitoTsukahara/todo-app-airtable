@@ -12,9 +12,6 @@
 </div>
 
 <style lang="scss">
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
   .time {
     position: relative;
   }
