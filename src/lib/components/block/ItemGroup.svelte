@@ -6,20 +6,11 @@
   export let isChecked: boolean
 </script>
 
-<li class="list-group-item">
+<li class="list-group-item border-b flex justify-between p-1.5 text-slate-800">
   <CheckInput {isChecked}>{item}</CheckInput>
   <RemoveItem/>
 </li>
 
 <style lang="scss">
-  .list-group-item {
-    display: flex;
-    position: relative;
-    padding: 0.5rem 1rem;
-    color: #212529;
-    text-decoration: none;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, .125);
-    justify-content: space-between;
-  }
+
 </style>
