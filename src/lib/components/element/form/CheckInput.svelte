@@ -1,13 +1,13 @@
 <script lang="ts">
-  export let isChecked = false
+  export let isDone = false
 </script>
 <div class="flex text-xl">
   <label>
     <input type="checkbox"
            class="mr-1"
-           bind:checked={isChecked}
+           bind:checked={isDone}
     />
-    {#if isChecked}
+    {#if isDone}
       <s>
         <slot/>
       </s>

@@ -46,6 +46,7 @@
   "type": "module",
   "dependencies": {
     "@github/relative-time-element": "^4.1.5",
+    "airtable": "^0.11.6",
     "path": "^0.12.7",
     "sass": "^1.57.1",
     "svelte-preprocess": "^5.0.0"
