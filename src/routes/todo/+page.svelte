@@ -2,13 +2,27 @@
   import TodoForm from '$lib/components/block/TodoForm.svelte'
   import ItemGroupList from '$lib/components/block/ItemGroupList.svelte'
   import type { GetOutput } from './+page.server'
-  import { useTodo } from '$lib/stores/todo/store'
+  import { type Todo, useTodo } from '$lib/stores/todo/store'
+  import { useTodoStoreApi } from '$lib/stores/todo/api';
 
   export let data: GetOutput
-  const { todoStore, setFromApi } = useTodo()
+  const { todoStore, setFromApi, updateTodoDoneState } = useTodo()
   $: setFromApi(data.todoList)
 
   $: todoList = $todoStore
+
+  async function requestDone(item: Todo) {
+    updateTodoDoneState(item.id, !item.isDone)
+    await useTodoStoreApi()
+      .update(item.id, {
+        name: item.name,
+        notes: item.notes,
+        isDone: item.isDone
+      })
+      .catch(() => {
+        updateTodoDoneState(item.id, item.isDone)
+      })
+  }
 </script>
 <div class="bg-slate-300 flex justify-center h-screen items-center ">
   <main class="grid gap-8 w-2/3 m-0-auto bg-white p-6 rounded">
@@ -16,6 +30,7 @@
     <TodoForm/>
     <ItemGroupList
         todoList={todoList}
+        onRequestDone={requestDone}
     />
   </main>
 </div>
