@@ -24,14 +24,26 @@ const updateTodoDoneState = (id: string, isDone: boolean) => {
     if (!state) {
       return state
     }
-    
+
     const targetTodo = state.find((todo) => todo.id === id)
     if (targetTodo) {
       targetTodo.isDone = isDone
     }
-    return {
-      ...state
+    return state
+  })
+}
+
+const deleteTodoState = (id: string) => {
+  todoStore.update((state) => {
+    if (!state) {
+      return state
     }
+
+    const targetTodoIndex = state.findIndex((todo) => todo.id === id)
+    if (targetTodoIndex) {
+      state.slice(targetTodoIndex)
+    }
+    return state
   })
 }
 
@@ -39,6 +51,7 @@ export const useTodo = () => {
   return {
     todoStore,
     setFromApi,
-    updateTodoDoneState
+    updateTodoDoneState,
+    deleteTodoState
   }
 }

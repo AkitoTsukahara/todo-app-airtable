@@ -6,7 +6,7 @@
   import { useTodoStoreApi } from '$lib/stores/todo/api';
 
   export let data: GetOutput
-  const { todoStore, setFromApi, updateTodoDoneState } = useTodo()
+  const { todoStore, setFromApi, updateTodoDoneState, deleteTodoState } = useTodo()
   $: setFromApi(data.todoList)
 
   $: todoList = $todoStore
@@ -23,6 +23,12 @@
         updateTodoDoneState(item.id, item.isDone)
       })
   }
+
+  async function requestDelete(item: Todo) {
+    deleteTodoState(item.id)
+    await useTodoStoreApi().destroy(item.id)
+    window.location.reload()
+  }
 </script>
 <div class="bg-slate-300 flex justify-center h-screen items-center ">
   <main class="grid gap-8 w-2/3 m-0-auto bg-white p-6 rounded">
@@ -31,6 +37,7 @@
     <ItemGroupList
         todoList={todoList}
         onRequestDone={requestDone}
+        onRequestDelete={requestDelete}
     />
   </main>
 </div>

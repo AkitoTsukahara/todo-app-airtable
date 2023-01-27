@@ -2,7 +2,6 @@
   import { createEventDispatcher } from 'svelte'
 
   const dispatch = createEventDispatcher()
-
   function onClick() {
     dispatch('clickRemoveItem')
   }

@@ -7,6 +7,9 @@
   function requestDone() {
     dispatch('requestDone')
   }
+  function requestDelete() {
+    dispatch('requestDelete')
+  }
 
   export let name: string
   export let notes: string
@@ -15,7 +18,7 @@
 
 <li class="list-group-item border-b flex justify-between p-1.5 text-slate-800">
   <CheckInput on:clickLabel={requestDone} {isDone}>{name}</CheckInput>
-  <RemoveItem/>
+  <RemoveItem on:clickRemoveItem={requestDelete}/>
 </li>
 
 <style lang="scss">
