@@ -25,8 +25,8 @@
   }
 
   async function requestDelete(item: Todo) {
-    deleteTodoState(item.id)
     await useTodoStoreApi().destroy(item.id)
+    deleteTodoState(item.id)
     window.location.reload()
   }
 </script>

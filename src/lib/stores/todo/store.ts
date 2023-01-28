@@ -7,25 +7,16 @@ export type Todo = {
   isDone: boolean
 }
 
-const todoStore = writable<Todo[] | null>(null)
+const todoStore = writable<Todo[]>([])
 
 const setFromApi = (data: Todo[]) => {
-  const todoList: Todo[] = data.map((record: Todo) => ({
-    id: record.id,
-    name: record.name,
-    notes: record.notes,
-    isDone: record.isDone
-  }))
-  todoStore.set(todoList)
+  todoStore.set(data)
 }
 
 const updateTodoDoneState = (id: string, isDone: boolean) => {
-  todoStore.update((state) => {
-    if (!state) {
-      return state
-    }
+  todoStore.update((state:Todo[]) => {
 
-    const targetTodo = state.find((todo) => todo.id === id)
+    const targetTodo = state.find((todo: Todo) => todo.id === id)
     if (targetTodo) {
       targetTodo.isDone = isDone
     }
@@ -34,12 +25,9 @@ const updateTodoDoneState = (id: string, isDone: boolean) => {
 }
 
 const deleteTodoState = (id: string) => {
-  todoStore.update((state) => {
-    if (!state) {
-      return state
-    }
+  todoStore.update((state:Todo[]) => {
 
-    const targetTodoIndex = state.findIndex((todo) => todo.id === id)
+    const targetTodoIndex = state.findIndex((todo: Todo) => todo.id === id)
     if (targetTodoIndex) {
       state.slice(targetTodoIndex)
     }
