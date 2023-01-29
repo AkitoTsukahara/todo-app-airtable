@@ -1,5 +1,5 @@
 <script lang="ts">
-  import TodoForm from '$lib/components/block/TodoForm.svelte'
+  import TodoForm from '$lib/components/section/TodoForm.svelte'
   import ItemGroupList from '$lib/components/block/ItemGroupList.svelte'
   import type { GetOutput } from './+page.server'
   import { type Todo, useTodo } from '$lib/stores/todo/store'
