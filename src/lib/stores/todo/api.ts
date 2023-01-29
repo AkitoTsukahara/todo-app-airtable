@@ -16,7 +16,7 @@ export const useTodoStoreApi = () => {
     return await base('todo')
       .select({
         cellFormat: 'json'
-      }).all().then((records:Records<ApiTodo>) => {
+      }).all().then((records: Records<ApiTodo>) => {
         return records.map((record): Todo => {
           return {
             id: record.id,
