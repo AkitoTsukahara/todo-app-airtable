@@ -7,7 +7,7 @@ export type GetOutput = {
 }
 
 export const load: ServerLoad = async (): Promise<GetOutput> => {
-  const [todoList] = await Promise.all([useTodoStoreApi().get()]).catch((err) => {
+  const [todoList] = await Promise.all([useTodoStoreApi().getList()]).catch((err) => {
     throw error(Number(err.response?.status), err.response?.statusText)
   })
   return {

@@ -2,7 +2,6 @@ import { base } from '$lib/package/airtable'
 import type { Todo } from '$lib/stores/todo/store'
 import type { Records } from 'airtable/lib/records'
 import type { FieldSet } from 'airtable'
-import type { RecordData } from 'airtable/lib/record_data';
 
 // fieldsの型指定
 interface ApiTodo extends FieldSet {
@@ -12,7 +11,19 @@ interface ApiTodo extends FieldSet {
 }
 
 export const useTodoStoreApi = () => {
-  const get = async () => {
+  const get = async (id: string) => {
+    return await base('todo')
+      .find(id).then((record: Record<ApiTodo>): Todo => {
+        console.log(record)
+        return {
+          id: record.id,
+          name: record.fields.name,
+          notes: record.fields.notes,
+          isDone: record.fields.isDone
+        }
+      })
+  }
+  const getList = async () => {
     return await base('todo')
       .select({
         cellFormat: 'json'
@@ -53,6 +64,7 @@ export const useTodoStoreApi = () => {
   }
   return {
     get,
+    getList,
     create,
     update,
     destroy
