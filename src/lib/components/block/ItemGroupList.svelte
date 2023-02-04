@@ -10,8 +10,8 @@
   {#each todoList as item}
     <ItemGroup
         {...item}
-        on:requestDone={() => onRequestDone(item)}
-        on:requestDelete={() => onRequestDelete(item)}
+        on:clickLabel={() => onRequestDone(item)}
+        on:clickRemoveItem={() => onRequestDelete(item)}
     />
   {/each}
 </ul>
