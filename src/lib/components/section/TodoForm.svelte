@@ -1,5 +1,4 @@
 <script lang="ts">
-  //import TextArea from '$lib/components/element/form/TextArea.svelte'
   import { useTodoStoreApi } from '$lib/stores/todo/api'
 
   let name = ''
@@ -15,7 +14,6 @@
       window.location.reload()
     }
   }
-
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
