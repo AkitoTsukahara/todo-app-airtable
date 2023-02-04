@@ -1,7 +1,7 @@
-import type { Todo } from '$lib/stores/todo/store'
-import type { ServerLoad } from '@sveltejs/kit';
-import { useTodoStoreApi } from '$lib/stores/todo/api';
-import { error } from '@sveltejs/kit';
+import type { ServerLoad } from '@sveltejs/kit'
+import { error } from '@sveltejs/kit'
+import type { Todo } from '$lib/stores/todo/detail/store'
+import { useTodoStoreApi } from '$lib/stores/todo/detail/api';
 
 export type DetailOutPut = {
   todo: Todo

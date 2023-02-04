@@ -1,12 +1,12 @@
 <script lang="ts">
   import type { DetailOutPut } from './+page.server'
-  //import { useTodo } from '$lib/stores/todo/store'
+  import { useTodo } from '$lib/stores/todo/detail/store'
 
   export let data: DetailOutPut
-  // const { todoStore, setFromApi, updateTodoDoneState, deleteTodoState } = useTodo()
-  // $: setFromApi(data.todo)
+  const { todoStore, setFromApi } = useTodo()
+  $: setFromApi(data.todo)
 
-  $: todo = data.todo
+  $: todo = $todoStore
 </script>
 
 <div>

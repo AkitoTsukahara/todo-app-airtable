@@ -1,11 +1,5 @@
 import { writable } from 'svelte/store'
-
-export type Todo = {
-  id: string
-  name: string
-  notes: string
-  isDone: boolean
-}
+import type { Todo } from '$lib/stores/todo/detail/store'
 
 const todoStore = writable<Todo[]>([])
 

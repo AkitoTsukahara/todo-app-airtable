@@ -2,8 +2,9 @@
   import TodoForm from '$lib/components/section/TodoForm.svelte'
   import ItemGroupList from '$lib/components/block/ItemGroupList.svelte'
   import type { GetOutput } from './+page.server'
-  import { type Todo, useTodo } from '$lib/stores/todo/store'
-  import { useTodoStoreApi } from '$lib/stores/todo/api';
+  import { useTodo } from '$lib/stores/todo/store'
+  import { useTodoStoreApi } from '$lib/stores/todo/api'
+  import type { Todo } from '$lib/stores/todo/detail/store'
 
   export let data: GetOutput
   const { todoStore, setFromApi, updateTodoDoneState, deleteTodoState } = useTodo()

@@ -1,6 +1,6 @@
 import { error, type ServerLoad } from '@sveltejs/kit'
 import { useTodoStoreApi } from '$lib/stores/todo/api'
-import type { Todo } from '$lib/stores/todo/store'
+import type { Todo } from '$lib/stores/todo/detail/store'
 
 export type GetOutput = {
   todoList: Todo[]
