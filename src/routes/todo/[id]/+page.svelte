@@ -9,11 +9,9 @@
   $: todo = $todoStore
 </script>
 
-<div>
-  <ul>
-    <li>{todo.id}</li>
-    <li>{todo.name}</li>
-    <li>{todo.notes}</li>
-    <li>{todo.isDone}</li>
-  </ul>
+<div class="bg-slate-300 flex justify-center h-screen items-center">
+  <main class="grid gap-8 w-2/3 m-0-auto bg-white p-6 rounded">
+    <h1>{todo.name}</h1>
+    <p>{todo.notes ? todo.notes : 'タスク内容が未登録です'}</p>
+  </main>
 </div>
