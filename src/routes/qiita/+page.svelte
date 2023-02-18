@@ -1,6 +1,7 @@
 <script lang="ts">
 
 import Main from './Main.svelte';
+import P from './P.svelte';
 </script>
 
 <main onclick="console.log('main')">MAIN
@@ -22,6 +23,8 @@ import Main from './Main.svelte';
 </main>
 
 <Main />
+
+<P />
 
 <style>
     * {

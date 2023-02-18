@@ -7,7 +7,9 @@
     dispatch('pClick');
   }
 </script>
-<p on:click={clickElement}>P</p>
+<div on:click={() => console.log('div')}>DIV
+  <p on:click={clickElement}>P</p>
+</div>
 
 <style>
     * {
