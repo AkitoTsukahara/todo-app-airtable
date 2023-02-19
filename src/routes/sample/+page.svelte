@@ -1,18 +1,23 @@
-<script lang="ts">
-  import '../../app.css';
-</script>
-<div class="w-10/12">
-  <header>
-    <h1 class="text-3xl font-bold ">todo</h1>
-    <div id="add-item">+</div>
+<div class="w-10/12 mx-auto my-10">
+  <header class="flex text-4xl justify-between items-center mb-10">
+    <h1 class="font-bold">todo</h1>
+    <div id="add-item" class="text-6xl">+</div>
   </header>
   <div class="wrapper flex">
     <aside class="w-1/5">
-      <ul id="tags">
-        <li>work</li>
-        <li>study</li>
-        <li>entertainment</li>
-        <li>family</li>
+      <ul id="tags" class="text-xl font-light">
+        <li class="mb-6"><a href="#work" class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-violet-300 rounded-full mr-2"></div>
+          work</a></li>
+        <li class="mb-6"><a href="#study" class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-blue-300 rounded-full mr-2"></div>
+          study</a></li>
+        <li class="mb-6"><a href="#entertainment" class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-red-300 rounded-full mr-2"></div>
+          entertainment</a></li>
+        <li class="mb-6"><a href="#family" class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-green-300 rounded-full mr-2"></div>
+          family</a></li>
       </ul>
       <div id="hide-done-task">
         <label>
