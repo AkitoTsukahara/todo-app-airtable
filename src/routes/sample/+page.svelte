@@ -4,8 +4,8 @@
     <div id="add-item" class="text-6xl">+</div>
   </header>
   <div class="wrapper flex">
-    <aside class="w-1/5">
-      <ul id="tags" class="text-xl font-light">
+    <aside class="w-1/5 text-xl font-light">
+      <ul id="tags">
         <li class="mb-6"><a href="#work" class="flex items-center gap-2">
           <div class="w-8 h-8 bg-violet-300 rounded-full mr-2"></div>
           work</a></li>
@@ -19,9 +19,9 @@
           <div class="w-8 h-8 bg-green-300 rounded-full mr-2"></div>
           family</a></li>
       </ul>
-      <div id="hide-done-task">
-        <label>
-          <input type="checkbox"/>
+      <div id="hide-done-task" >
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="w-6 h-6 rounded mr-2"/>
           Hide Done Task
         </label>
       </div>
