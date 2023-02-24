@@ -27,14 +27,14 @@
       </div>
     </aside>
     <main class="w-4/5">
-      <div class="task">
+      <div class="task w-4/12 gap-1 bg-amber-200">
         <div class="task-top">
-          <h2>The first task title</h2>
+          <h2 class="text-2xl font-bold">The first task title</h2>
           <div>
             <!-- 3点リーダーのメニューを付ける -->
           </div>
         </div>
-        <p>sample message.sample message.sample message.sample message.sample message.sample message.sample message.</p>
+        <p class="text-xl">sample message.sample message.sample message.sample message.sample message.sample message.sample message.</p>
         <div class="task-bottom">
           <div class="tags">
             <ul>
