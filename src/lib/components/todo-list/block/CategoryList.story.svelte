@@ -1,5 +1,5 @@
 <script lang="ts">
-  import TagList from '$lib/components/todo-list/block/TagList.svelte'
+  import TagList from '$lib/components/todo-list/block/CategoryList.svelte'
 
   export let Hst
 </script>
