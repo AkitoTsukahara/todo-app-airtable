@@ -1,21 +1,16 @@
 <script lang="ts">
-  import type { Category } from '$lib/components/todo-list/block/CategoryList.svelte'
-  import CategoryList from '$lib/components/todo-list/block/CategoryList.svelte';
+  import type { Category } from '$lib/stores/todo-list/store';
 
-  export type TodoItem = {
-    id: string
-    name: string
-    notes: string
-    isDone: boolean
-    categoryList: Category[]
-  }
-
-  export let todoItem: TodoItem
+  export let id: string
+  export let name: string
+  export let notes: string
+  export let isDone: boolean
+  export let categoryList: Category[]
 </script>
 
 <div class="task gap-1 bg-amber-200 p-6 rounded-xl mb-6 overflow-auto">
   <div class="task-top flex justify-between mb-4 items-center">
-    <h2 class="text-2xl font-bold">{todoItem.name}</h2>
+    <h2 class="text-2xl font-bold">{name}</h2>
     <div>
       <button data-dropdown-toggle="dropdownDotsHorizontal" class="inline-flex items-center p-2 text-2xl font-medium text-center text-gray-900 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none" type="button">
         <svg class="w-8 h-8" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -35,19 +30,19 @@
       </div>
     </div>
   </div>
-  <p class="text-xl mb-6">{todoItem.notes}</p>
+  <p class="text-xl mb-6">{notes}</p>
   <div class="task-bottom flex justify-between">
     <div class="category">
       <div class="category-tag">
         <ul class="flex gap-2">
-          {#each todoItem.categoryList as category}
+          {#each categoryList as category}
           <li><a href="#{category.key}"><div class="w-8 h-8 {category.color} rounded-full mr-2"></div></a></li>
           {/each}
         </ul>
       </div>
     </div>
     <label class="inline-flex items-center text-xl font-light">
-      <input type="checkbox" bind:checked={todoItem.isDone} class="w-6 h-6 rounded-xl mr-2"/>
+      <input type="checkbox" bind:checked={isDone} class="w-6 h-6 rounded-xl mr-2"/>
       Done
     </label>
   </div>

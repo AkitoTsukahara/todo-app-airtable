@@ -1,8 +1,6 @@
 <script lang="ts">
-  export type Category = {
-    key: string
-    color: string
-  }
+  import type { Category } from '$lib/stores/todo-list/store';
+
   const categoryList: Category[] = [
     {key: 'work', color: 'bg-violet-300'},
     {key: 'study', color: 'bg-blue-300'},
